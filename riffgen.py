@@ -24,7 +24,7 @@ def subset_sum(numbers, target, index, index_print = [], partial = []):
         TOTAL = TOTAL + 1
         if(len(index_print) == total_notes):
             TOTAL_NOTES_COUNT = TOTAL_NOTES_COUNT + 1
-            print(partial)
+            # print(partial)
             print(f"{target} : {TOTAL} : {index_print}")
             # print ("%s : (%s)" % (target, files_print))
             aname = combineaudio(index_print)
@@ -43,7 +43,7 @@ def subset_sum(numbers, target, index, index_print = [], partial = []):
         # f_i = "./Mixdown/" + index[i] + "Open.wav"
 
         # Update COUNT for the current element
-        if COUNT[n_num] < 2:
+        if COUNT[n_num] < 3:
             COUNT[n_num] += 1
             subset_sum(remaining, target, remaining_index, index_print + [n_i],
                     partial + [n_num])
