@@ -61,11 +61,15 @@ if __name__ == "__main__":
     # 8 : Quarter
     # 9 : Dotted-Quarter
     #subset_sum([0.167, 0.25, 0.334, 0.375, 0.5, 0.667, 0.75, 1, 1.5],2)
-    numbers = [Fraction(1, 6), Fraction(1, 4), Fraction(1, 3), Fraction(3, 8),
+    numbers_full = [Fraction(1, 6), Fraction(1, 4), Fraction(1, 3), Fraction(3, 8),
                Fraction(1, 2), Fraction(4, 6), Fraction(3, 4), Fraction(1, 1), Fraction(3, 2)]
+    numbers = []
     names = ["Triplet-16th", "16th", "Triplet-8th", "Dotted-16th", "8th",
              "Triplet-Quarter", "Dotted-8th", "Quarter", "Dotted-Quarter"]
-    index = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+    #index = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+    index = ["2", "4", "5", "7", "8", "9"]
+    for ni, item in enumerate(index):
+        numbers.append(numbers_full[int(item) - 1])
     target = [4]
     total_notes = 6
 
