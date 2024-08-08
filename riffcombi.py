@@ -1,21 +1,25 @@
-from audiosynth import combineaudio, exportaduif, exportaudiocombi
-import itertools
+"""
+Generates a permutation of list values
+"""
 import shutil
 import os
+import itertools
+from audiosynth import combineaudio, exportaudiocombi
 
-total_perm = 0
-iteration = 290
+
+TOTALPERM = 0
+ITERATION = 290
 elements = ['4', '4', '5', '5', '6', '8']
 
-shutil.rmtree("./COMBI/")
-os.makedirs("./COMBI/" + str(iteration), exist_ok=True)
 
-permutations = itertools.permutations(elements)
-for perm in permutations:
-    total_perm += 1
-    a = combineaudio(perm)
-    exportaudiocombi(a + a + a + a, "290", str(total_perm))
-    print(perm)
-print(total_perm)
+if __name__ == "__main__":
+    shutil.rmtree("./COMBI/")
+    os.makedirs("./COMBI/" + str(ITERATION), exist_ok=True)
 
-
+    permutations = itertools.permutations(elements)
+    for perm in permutations:
+        TOTALPERM += 1
+        a = combineaudio(perm)
+        exportaudiocombi(a + a + a + a, "290", str(TOTALPERM))
+        print(perm)
+    print(TOTALPERM)
