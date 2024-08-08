@@ -17,11 +17,11 @@ if __name__ == "__main__":
         shutil.rmtree("./COMBI/")
     except:
         os.makedirs("./COMBI/" + str(ITERATION), exist_ok=True)
-
+    os.makedirs("./COMBI/" + str(ITERATION), exist_ok=True)
     permutations = itertools.permutations(elements)
     for perm in permutations:
         TOTALPERM += 1
         a = combineaudio(perm)
-        exportaudiocombi(a + a + a + a, str(ITERATION), str(TOTALPERM))
+        exportaudiocombi(a + a, str(ITERATION), str(TOTALPERM))
         print(perm)
     print(TOTALPERM)
