@@ -9,12 +9,14 @@ from audiosynth import combineaudio, exportaudiocombi
 
 TOTALPERM = 0
 ITERATION = 290
-elements = ['4', '4', '5', '5', '6', '8']
+elements = ['4', '4', '5', '5', '7', '9']
 
 
 if __name__ == "__main__":
-    shutil.rmtree("./COMBI/")
-    os.makedirs("./COMBI/" + str(ITERATION), exist_ok=True)
+    try:
+        shutil.rmtree("./COMBI/")
+    except:
+        os.makedirs("./COMBI/" + str(ITERATION), exist_ok=True)
 
     permutations = itertools.permutations(elements)
     for perm in permutations:
