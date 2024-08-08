@@ -4,10 +4,11 @@ import shutil
 import os
 
 total_perm = 0
+iteration = 290
 elements = ['4', '4', '5', '5', '6', '8']
 
 shutil.rmtree("./COMBI/")
-os.makedirs("./COMBI/" + str(290), exist_ok=True)
+os.makedirs("./COMBI/" + str(iteration), exist_ok=True)
 
 permutations = itertools.permutations(elements)
 for perm in permutations:
