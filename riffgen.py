@@ -24,6 +24,7 @@ def subset_sum(numbers, target, index, index_print = [], partial = []):
         TOTAL = TOTAL + 1
         if(len(index_print) == total_notes):
             TOTAL_NOTES_COUNT = TOTAL_NOTES_COUNT + 1
+            print(partial)
             print(f"{target} : {TOTAL} : {index_print}")
             # print ("%s : (%s)" % (target, files_print))
             aname = combineaudio(index_print)
@@ -42,7 +43,7 @@ def subset_sum(numbers, target, index, index_print = [], partial = []):
         # f_i = "./Mixdown/" + index[i] + "Open.wav"
 
         # Update COUNT for the current element
-        if COUNT[n_num] < 3:
+        if COUNT[n_num] < 2:
             COUNT[n_num] += 1
             subset_sum(remaining, target, remaining_index, index_print + [n_i],
                     partial + [n_num])
@@ -61,7 +62,7 @@ if __name__ == "__main__":
     # 9 : Dotted-Quarter
     #subset_sum([0.167, 0.25, 0.334, 0.375, 0.5, 0.667, 0.75, 1, 1.5],2)
     numbers = [Fraction(1, 6), Fraction(1, 4), Fraction(1, 3), Fraction(3, 8),
-               Fraction(1, 2), Fraction(3, 4), Fraction(1), Fraction(3, 2)]
+               Fraction(1, 2), Fraction(4, 6), Fraction(3, 4), Fraction(1, 1), Fraction(3, 2)]
     names = ["Triplet-16th", "16th", "Triplet-8th", "Dotted-16th", "8th",
              "Triplet-Quarter", "Dotted-8th", "Quarter", "Dotted-Quarter"]
     index = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
