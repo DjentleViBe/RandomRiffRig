@@ -57,7 +57,11 @@ if __name__ == "__main__":
     target = [4]
 
     shutil.rmtree("./RESULTS/")
+    os.makedirs("./RESULTS/", exist_ok=True)
 
+    shutil.rmtree("./COMBI/")
+    os.makedirs("./COMBI/", exist_ok=True)
+    
     for f in range(0, len(target)):
         os.makedirs("./RESULTS/" + str(target[f]), exist_ok=True)
     
