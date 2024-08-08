@@ -8,10 +8,11 @@ from audiosynth import combineaudio, exportaduif
 
 COUNT = None
 
-def subset_sum(numbers, target, index, index_print = None, partial = None):
+def subset_sum(numbers, target, index, index_print = [], partial = []):
     """Subset sum function
     """
     global TOTAL
+    global TOTAL_NOTES_COUNT
     global COUNT
     if COUNT is None:
         COUNT = {num: 0 for num in set(numbers)}
@@ -21,11 +22,13 @@ def subset_sum(numbers, target, index, index_print = None, partial = None):
     # check if the partial sum is equals to target
     if s_sum == target:
         TOTAL = TOTAL + 1
-        print(f"{target} : {TOTAL} : {index_print}")
-        # print ("%s : (%s)" % (target, files_print))
-        aname = combineaudio(index_print)
-        print("exporting : ", str(TOTAL))
-        exportaduif(aname + aname + aname + aname, str(target), str(TOTAL))
+        if(len(index_print) == total_notes):
+            TOTAL_NOTES_COUNT = TOTAL_NOTES_COUNT + 1
+            print(f"{target} : {TOTAL} : {index_print}")
+            # print ("%s : (%s)" % (target, files_print))
+            aname = combineaudio(index_print)
+            # print("exporting : ", str(TOTAL))
+            exportaduif(aname + aname + aname + aname, str(target), str(TOTAL))
     if s_sum >= target:
         return  # if we reach the number why bother to continue
 
@@ -63,17 +66,20 @@ if __name__ == "__main__":
              "Triplet-Quarter", "Dotted-8th", "Quarter", "Dotted-Quarter"]
     index = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
     target = [4]
+    total_notes = 6
 
-    shutil.rmtree("./RESULTS/")
-    os.makedirs("./RESULTS/", exist_ok=True)
-
-    shutil.rmtree("./COMBI/")
-    os.makedirs("./COMBI/", exist_ok=True)
+    try:
+        shutil.rmtree("./RESULTS/")
+        shutil.rmtree("./COMBI/")
+    except:
+        os.makedirs("./RESULTS/", exist_ok=True)
+        os.makedirs("./COMBI/", exist_ok=True)
 
     for f, item in enumerate(target):
         os.makedirs("./RESULTS/" + str(item), exist_ok=True)
 
     TOTAL_SUM = 0
+    TOTAL_NOTES_COUNT = 0
     for j, item in enumerate(target):
         TOTAL = 0
         subset_sum(numbers, item, index)
@@ -81,3 +87,4 @@ if __name__ == "__main__":
         TOTAL_SUM += TOTAL
 
 print("TOTAL Riffs : " + str(TOTAL_SUM))
+print("TOTAL Riffs with target note count : " + str(TOTAL_NOTES_COUNT))
