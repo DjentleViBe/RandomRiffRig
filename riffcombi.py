@@ -8,8 +8,8 @@ from audiosynth import combineaudio, exportaudiocombi
 
 
 TOTALPERM = 0
-ITERATION = 290
-elements = ['4', '4', '5', '5', '7', '9']
+ITERATION = 413
+elements = ['1', '1', '6', '8', '9', '9']
 
 
 if __name__ == "__main__":
@@ -22,6 +22,6 @@ if __name__ == "__main__":
     for perm in permutations:
         TOTALPERM += 1
         a = combineaudio(perm)
-        exportaudiocombi(a + a + a + a, "290", str(TOTALPERM))
+        exportaudiocombi(a + a + a + a, str(ITERATION), str(TOTALPERM))
         print(perm)
     print(TOTALPERM)
