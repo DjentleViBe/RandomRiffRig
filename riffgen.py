@@ -22,14 +22,22 @@ def subset_sum(numbers, target, index, index_print = [], partial = []):
     # check if the partial sum is equals to target
     if s_sum == target:
         TOTAL = TOTAL + 1
-        if(len(index_print) == total_notes):
-            TOTAL_NOTES_COUNT = TOTAL_NOTES_COUNT + 1
-            # print(partial)
+        if(note_limit == True):
+            if(len(index_print) == total_notes):
+                TOTAL_NOTES_COUNT = TOTAL_NOTES_COUNT + 1
+                # print(partial)
+                print(f"{target} : {TOTAL} : {index_print}")
+                # print ("%s : (%s)" % (target, files_print))
+                aname = combineaudio(index_print)
+                # print("exporting : ", str(TOTAL))
+                exportaduif(aname + aname + aname + aname, str(target), str(TOTAL))
+        else:
             print(f"{target} : {TOTAL} : {index_print}")
             # print ("%s : (%s)" % (target, files_print))
             aname = combineaudio(index_print)
             # print("exporting : ", str(TOTAL))
             exportaduif(aname + aname + aname + aname, str(target), str(TOTAL))
+    
     if s_sum >= target:
         return  # if we reach the number why bother to continue
 
@@ -67,11 +75,13 @@ if __name__ == "__main__":
     names = ["Triplet-16th", "16th", "Triplet-8th", "Dotted-16th", "8th",
              "Triplet-Quarter", "Dotted-8th", "Quarter", "Dotted-Quarter"]
     #index = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
-    index = ["2", "4", "5", "7", "8", "9"]
+    # index = ["2", "4", "5", "7", "8", "9"]
+    index = ["5", "8", "7", "9"]
     for ni, item in enumerate(index):
         numbers.append(numbers_full[int(item) - 1])
     target = [4]
-    total_notes = 6
+    note_limit = False
+    total_notes = 10
 
     try:
         shutil.rmtree("./RESULTS/")
